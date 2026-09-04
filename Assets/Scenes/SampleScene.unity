@@ -73195,7 +73195,8 @@ GameObject:
   - component: {fileID: 1191232539}
   - component: {fileID: 1191232538}
   - component: {fileID: 1191232540}
-  m_Layer: 0
+  - component: {fileID: 1191232541}
+  m_Layer: 8
   m_Name: tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73322,6 +73323,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.6, y: 0.2}
   m_EdgeRadius: 0
+--- !u!114 &1191232541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191232537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5b1f6e1f2b98cf4587d6c467c331c39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  requiredTool: 0
+  health: 100
 --- !u!1 &1195291061
 GameObject:
   m_ObjectHideFlags: 0
@@ -73529,8 +73544,11 @@ MonoBehaviour:
     count: 1
     index: 0
   - itemData: {fileID: 11400000, guid: afa4eac47fee7834a8a318de8ccf602f, type: 2}
-    count: 2
+    count: 3
     index: 1
+  - itemData: {fileID: 11400000, guid: 034d04ef1ce41554daef3e56e938cdbc, type: 2}
+    count: 1
+    index: 2
 --- !u!61 &1196883550
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -76673,7 +76691,8 @@ GameObject:
   - component: {fileID: 2015884126}
   - component: {fileID: 2015884125}
   - component: {fileID: 2015884127}
-  m_Layer: 0
+  - component: {fileID: 2015884128}
+  m_Layer: 8
   m_Name: rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76800,6 +76819,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.6, y: 0.2}
   m_EdgeRadius: 0
+--- !u!114 &2015884128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015884124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5b1f6e1f2b98cf4587d6c467c331c39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResourceNode
+  requiredTool: 1
+  health: 100
 --- !u!1001 &2022471799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77043,6 +77076,7 @@ GameObject:
   - component: {fileID: 2068578764}
   - component: {fileID: 2068578765}
   - component: {fileID: 2068578766}
+  - component: {fileID: 2068578767}
   m_Layer: 0
   m_Name: Mechanics
   m_TagString: Untagged
@@ -77127,6 +77161,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   toolbarUI: {fileID: 1456559590}
   playerInventory: {fileID: 2133699428}
+  playerMethods: {fileID: 2068578767}
+--- !u!114 &2068578767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068578761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c17b083feaf1bc24a8fafeee68ee5b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!224 &2087417686 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3762567516582713584, guid: 109eb32225721864fb38a3ae92978ab4, type: 3}

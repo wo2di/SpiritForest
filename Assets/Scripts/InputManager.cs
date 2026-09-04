@@ -116,4 +116,17 @@ public class InputManager : MonoBehaviour
         if (active) inputActions.Player.Esc.Enable();
         else inputActions.Player.Esc.Disable();
     }
+
+    public void SetToolbarInputActive(bool active)
+    {
+        if (active) inputActions.Player.Toolbar.Enable();
+        else inputActions.Player.Toolbar.Disable();
+    }
+
+    public void SetAttackInputActive(bool active)
+    {
+        if (active) inputActions.Player.Attack.Enable();
+        else inputActions.Player.Attack.Disable();
+    }
+
 }

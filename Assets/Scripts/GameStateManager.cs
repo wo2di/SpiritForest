@@ -60,6 +60,8 @@ public class PlayState : IState
         InputManager.Instance.SetInteractInputActive(true);
         InputManager.Instance.SetTabInputActive(true);
         InputManager.Instance.SetEscInputActive(true);
+        InputManager.Instance.SetToolbarInputActive(true);
+        InputManager.Instance.SetAttackInputActive(true);
     }
     public void Update() { }
     public void Exit() { }
@@ -74,6 +76,8 @@ public class UIState_Tab : IState
         InputManager.Instance.SetInteractInputActive(false);
         InputManager.Instance.SetTabInputActive(true);
         InputManager.Instance.SetEscInputActive(true);
+        InputManager.Instance.SetToolbarInputActive(true);
+        InputManager.Instance.SetAttackInputActive(false);
     }
     public void Update() { }
     public void Exit() { }
@@ -89,6 +93,8 @@ public class UIState_Esc : IState
         InputManager.Instance.SetInteractInputActive(false);
         InputManager.Instance.SetTabInputActive(false);
         InputManager.Instance.SetEscInputActive(true);
+        InputManager.Instance.SetToolbarInputActive(false);
+        InputManager.Instance.SetAttackInputActive(false);
     }
     public void Update() { }
     public void Exit() { }
@@ -104,6 +110,8 @@ public class UIState_Chest : IState
         InputManager.Instance.SetInteractInputActive(true);
         InputManager.Instance.SetTabInputActive(false);
         InputManager.Instance.SetEscInputActive(true);
+        InputManager.Instance.SetToolbarInputActive(true);
+        InputManager.Instance.SetAttackInputActive(false);
     }
     public void Update() { }
     public void Exit() { }
@@ -119,6 +127,8 @@ public class UIState_Dialogue : IState
         InputManager.Instance.SetInteractInputActive(true);
         InputManager.Instance.SetTabInputActive(false);
         InputManager.Instance.SetEscInputActive(false);
+        InputManager.Instance.SetToolbarInputActive(true);
+        InputManager.Instance.SetAttackInputActive(false);
     }
     public void Update() { }
     public void Exit() { }

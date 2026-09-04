@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 4bfd33aa105eeb54ab6589bb91af9f04, type: 3}
   m_Name: New Consumable Item
-  m_EditorClassIdentifier: Assembly-CSharp::ConsumableData
-  itemName: B
-  maxStackSize: 10
-  objectSprite: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData_Consumable
+  itemName: potion
+  maxStackSize: 0
+  objectSprite: {fileID: 21300000, guid: 3f35d677dfb9e2247b94cbe623ba93cf, type: 3}
   iconSprite: {fileID: 21300000, guid: 3f35d677dfb9e2247b94cbe623ba93cf, type: 3}
