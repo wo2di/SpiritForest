@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e38b8ad8e3cfdc41b6e9bdf4389c466, type: 3}
-  m_Name: New Axe Item
-  m_EditorClassIdentifier: Assembly-CSharp::AxeData
-  itemName: axe
+  m_Name: Tool_Pickaxe
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData_Tool
+  itemName: pickaxe
   maxStackSize: 1
-  objectSprite: {fileID: 21300000, guid: 9d3bbf57d3c15774b991f5581c7643db, type: 3}
-  iconSprite: {fileID: 21300000, guid: 9d3bbf57d3c15774b991f5581c7643db, type: 3}
+  objectSprite: {fileID: 21300000, guid: 3f35d677dfb9e2247b94cbe623ba93cf, type: 3}
+  iconSprite: {fileID: 21300000, guid: 3f35d677dfb9e2247b94cbe623ba93cf, type: 3}
   power: 10
-  toolType: 0
+  toolType: 1
