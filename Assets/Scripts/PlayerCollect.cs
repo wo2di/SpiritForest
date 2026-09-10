@@ -22,10 +22,14 @@ public class PlayerCollect : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.5f, collectableLayer);
         foreach (Collider2D collider in colliders)
         {
-            collider.TryGetComponent<FieldItem>(out FieldItem fieldItem);
-            if (fieldItem != null)
+            collider.TryGetComponent<Collectable>(out Collectable collectable);
+            if (collectable != null)
             {
-                playerInventory.AddItem(fieldItem);
+                playerInventory.AddItem(collectable.slot);
+                if(collectable.slot.IsEmpty())
+                {
+                    collectable.Collect();
+                }
             }
         }
     }

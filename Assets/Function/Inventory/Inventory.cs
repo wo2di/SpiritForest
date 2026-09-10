@@ -2,6 +2,7 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class Inventory : MonoBehaviour
 {
@@ -12,7 +13,68 @@ public class Inventory : MonoBehaviour
     private void Awake()
     {
         inventorySlots = new List<InventorySlot>(capacity);
+        for (int i = 0; i < capacity; i++)
+        {   
+            inventorySlots.Add(new InventorySlot());
+        }
     }
+
+    public List<InventorySlot> FindSlotsOfItem(ItemData itemData)
+    {
+        return inventorySlots.FindAll(slot => slot.itemData == itemData);
+    }
+
+    public void AddItem(InventorySlot add)
+    {
+        List<InventorySlot> sameSlots = FindSlotsOfItem(add.itemData);
+
+        if(sameSlots.Count > 0)
+        {
+            foreach (InventorySlot slot in sameSlots)
+            {
+                if (slot.count + add.count <= add.itemData.maxStackSize)
+                {
+                    slot.count += add.count;
+                    add.count = 0;
+                    break;
+                }
+                else
+                {
+                    int canAdd = add.itemData.maxStackSize - slot.count;
+                    slot.count += canAdd;
+                    add.count -= canAdd;
+                }
+            }
+        }
+
+        if(add.count > 0)
+        {
+            List<InventorySlot> emptySlots = FindSlotsOfItem(null);
+
+            if(emptySlots.Count > 0)
+            {
+                foreach (InventorySlot slot in emptySlots)
+                {
+                    if (add.count <= add.itemData.maxStackSize)
+                    {
+                        slot.itemData = add.itemData;
+                        slot.count = add.count;
+                        add.count = 0;
+                        break;
+                    }
+                    else
+                    {
+                        slot.itemData = add.itemData;
+                        slot.count = add.itemData.maxStackSize;
+                        add.count -= add.itemData.maxStackSize;
+                    }
+                }
+            }
+        }
+
+    }
+
+    
 
     public InventorySlot GetSlotByIndex(int index)
     {
@@ -20,19 +82,19 @@ public class Inventory : MonoBehaviour
     }
 
 
-    public void AddItem(FieldItem fieldItem)
-    {
-        int remainingCount = TryAddItem(fieldItem.itemData, fieldItem.count);
-        if ( remainingCount == 0)
-        {
-            fieldItem.Collect();
-        }
-        else
-        {
-            fieldItem.count = remainingCount;
-        }
+    //public void AddItem(Collectable fieldItem)
+    //{
+    //    int remainingCount = TryAddItem(fieldItem.itemData, fieldItem.count);
+    //    if ( remainingCount == 0)
+    //    {
+    //        fieldItem.Collect();
+    //    }
+    //    else
+    //    {
+    //        fieldItem.count = remainingCount;
+    //    }
 
-    }
+    //}
 
     public int TryAddItem(ItemData itemData, int count)
     {

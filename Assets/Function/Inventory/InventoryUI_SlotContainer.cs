@@ -17,12 +17,14 @@ public class InventoryUI_SlotContainer : MonoBehaviour
         ClearInventoryDraw();
         foreach(InventorySlot slot in inventory.inventorySlots)
         {
-
-            InventoryUI_Slot inventoryUI_Slot = transform.GetChild(slot.index).GetComponent<InventoryUI_Slot>();
-            inventoryUI_Slot.SetActive(true);
-            inventoryUI_Slot.SetSlot(slot.itemData.iconSprite, slot.count.ToString());
-            inventoryUI_Slot.SetDataSlot(slot);
-
+            if(!slot.IsEmpty())
+            {
+                InventoryUI_Slot inventoryUI_Slot = transform.GetChild(slot.index).GetComponent<InventoryUI_Slot>();
+                inventoryUI_Slot.SetActive(true);
+                inventoryUI_Slot.SetSlot(slot.itemData.iconSprite, slot.count.ToString());
+                inventoryUI_Slot.SetDataSlot(slot);
+            }
+            
         }
 
     }

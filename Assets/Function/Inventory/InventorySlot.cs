@@ -9,5 +9,9 @@ public class InventorySlot
     public int count;
     public int index;
 
+    public bool IsEmpty()
+    {
+        return itemData == null || count <= 0;
+    }
 
 }
