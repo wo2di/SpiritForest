@@ -24,7 +24,7 @@ public class Chest : MonoBehaviour, IInteractable, IInteractButton
     {
         foreach (InventorySlot slot in itemsInChest)
         {
-            chestInventory.TryAddItem(slot.itemData, slot.count);
+            chestInventory.AddItem(slot);
         }
     }
 

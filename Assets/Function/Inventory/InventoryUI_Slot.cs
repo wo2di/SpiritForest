@@ -1,6 +1,4 @@
-using JetBrains.Annotations;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -53,9 +51,15 @@ public class InventoryUI_Slot : MonoBehaviour, IPointerClickHandler
         text.gameObject.SetActive(active);
     }
 
-    public void SetDataSlot(InventorySlot slot)
+    public void SetSlotData(InventorySlot slot)
     {
         dataSlot = slot;
+        if (!slot.IsEmpty()) 
+        {
+            SetSlot(slot.itemData.iconSprite, slot.count.ToString());
+            SetActive(true);
+        }
+        
     }
 
     private void Awake()

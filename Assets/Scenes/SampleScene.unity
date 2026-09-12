@@ -75318,7 +75318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FieldItem
   slot:
-    itemData: {fileID: 11400000, guid: af62755ab9a65a042acb56b5054bc2a1, type: 2}
+    itemData: {fileID: 11400000, guid: 60f88a05fde85fe4ea2fb796e0240fbe, type: 2}
     count: 10
     index: 0
 --- !u!212 &1510720560
@@ -78432,6 +78432,7 @@ MonoBehaviour:
   collectableLayer:
     serializedVersion: 2
     m_Bits: 128
+  OnInventoryChanged: {fileID: 11400000, guid: 421001d9bddd71141809b6ec366cab28, type: 2}
 --- !u!114 &2068578766
 MonoBehaviour:
   m_ObjectHideFlags: 0

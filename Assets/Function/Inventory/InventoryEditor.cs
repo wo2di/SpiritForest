@@ -4,6 +4,7 @@ using UnityEditor;
 [CustomEditor(typeof(Inventory))]
 public class InventoryEditor : Editor
 {
+
     private ItemData itemData;
     private int count;
 
@@ -14,14 +15,16 @@ public class InventoryEditor : Editor
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Add Item to Inventory", EditorStyles.boldLabel);
 
+
         itemData = EditorGUILayout.ObjectField("Item Data", itemData, typeof(ItemData), false) as ItemData;
         count = EditorGUILayout.IntField("Count", count);
 
         if(GUILayout.Button("Add"))
         {
             Inventory inventory = (Inventory)target;
-            inventory.TryAddItem(itemData, count);
+            inventory.AddItem(new InventorySlot(inventory) { itemData = itemData, count = count });
         }
+         
     }
 
 

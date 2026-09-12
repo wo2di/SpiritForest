@@ -15,7 +15,7 @@ public class Inventory : MonoBehaviour
         inventorySlots = new List<InventorySlot>(capacity);
         for (int i = 0; i < capacity; i++)
         {   
-            inventorySlots.Add(new InventorySlot());
+            inventorySlots.Add(new InventorySlot(this));
         }
     }
 
@@ -96,60 +96,60 @@ public class Inventory : MonoBehaviour
 
     //}
 
-    public int TryAddItem(ItemData itemData, int count)
-    {
-        int maxStackSize = itemData.maxStackSize;
+    //public int TryAddItem(ItemData itemData, int count)
+    //{
+    //    int maxStackSize = itemData.maxStackSize;
 
-        foreach (InventorySlot slot in inventorySlots)
-        {
-            if (slot.itemData.itemName == itemData.itemName)
-            {
-                if (slot.count + count <= maxStackSize)
-                {
-                    slot.count += count;
-                    return 0;
-                }
-                else
-                {
-                    int canadd = maxStackSize - slot.count;
-                    count -= canadd;
-                    slot.count += canadd;
-                }
+    //    foreach (InventorySlot slot in inventorySlots)
+    //    {
+    //        if (slot.itemData.itemName == itemData.itemName)
+    //        {
+    //            if (slot.count + count <= maxStackSize)
+    //            {
+    //                slot.count += count;
+    //                return 0;
+    //            }
+    //            else
+    //            {
+    //                int canadd = maxStackSize - slot.count;
+    //                count -= canadd;
+    //                slot.count += canadd;
+    //            }
                 
-            }
-        }
+    //        }
+    //    }
 
-        if (count > 0)
-        {
-            if(inventorySlots.Count >= capacity)
-            {
-                Debug.Log("Inventory is full");
-                return count;
-            }
-            else
-            {
-                // 여기서 maxStackSize 보다 커도 그냥 넣는 오류가 있음 그리고 다음에 같은 아이템 넣을때도 이상해짐
-                InventorySlot newSlot = new InventorySlot();
-                newSlot.itemData = itemData;
-                newSlot.count = count;
+    //    if (count > 0)
+    //    {
+    //        if(inventorySlots.Count >= capacity)
+    //        {
+    //            Debug.Log("Inventory is full");
+    //            return count;
+    //        }
+    //        else
+    //        {
+    //            // 여기서 maxStackSize 보다 커도 그냥 넣는 오류가 있음 그리고 다음에 같은 아이템 넣을때도 이상해짐
+    //            InventorySlot newSlot = new InventorySlot();
+    //            newSlot.itemData = itemData;
+    //            newSlot.count = count;
 
-                for (int i = 0; i < capacity; i++)
-                {
-                    if( !inventorySlots.Any(slot => slot.index == i))
-                    {
-                        newSlot.index = i;
-                        break;
-                    }
-                }
+    //            for (int i = 0; i < capacity; i++)
+    //            {
+    //                if( !inventorySlots.Any(slot => slot.index == i))
+    //                {
+    //                    newSlot.index = i;
+    //                    break;
+    //                }
+    //            }
 
-                inventorySlots.Add(newSlot);
-            }
+    //            inventorySlots.Add(newSlot);
+    //        }
             
-        }
+    //    }
 
-        return 0;
+    //    return 0;
 
-    }
+    //}
 
 
 

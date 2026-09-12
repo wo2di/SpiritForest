@@ -4,6 +4,7 @@ public class PlayerCollect : MonoBehaviour
 {
     public Inventory playerInventory;
     public LayerMask collectableLayer;
+    public EventSO OnInventoryChanged;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,6 +30,7 @@ public class PlayerCollect : MonoBehaviour
                 if(collectable.slot.IsEmpty())
                 {
                     collectable.Collect();
+                    OnInventoryChanged.Raise();
                 }
             }
         }
