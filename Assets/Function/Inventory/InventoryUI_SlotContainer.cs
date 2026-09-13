@@ -51,35 +51,30 @@ public class InventoryUI_SlotContainer : MonoBehaviour
 
     public void OnSlotClick(InventoryUI_Slot slot)
     {
-        //click on item wihtout cursor -> pick up
-        if (!slot.IsEmpty() && !cursorItemUI.IsActive())
-        {
-            SetCursorItemUI(slot);
-            slot.SetActive(false);
-            
-            inventoryController.slotOnCursor = slot.dataSlot;
+        // pick up
+        if (!cursorItemUI.IsActive())
+        {   
             cursorItemUI.SetSlotData(slot.dataSlot);
-            //inventoryController.inventoryCursorIsFrom = inventoryUI.displayingInventory;
         }
 
-        // click on empty slot with cursor -> drop
-        else if (slot.IsEmpty() && cursorItemUI.IsActive())
+        // drop
+        else
         {
-
-            int newIndex = slot.transform.GetSiblingIndex();
-            slot.dataSlot.inventory.inventorySlots[newIndex] = cursorItemUI.slotData;
-
             int oldIndex = cursorItemUI.slotData.inventory.inventorySlots.IndexOf(cursorItemUI.slotData);
-            cursorItemUI.slotData.inventory.inventorySlots[oldIndex] = new InventorySlot(cursorItemUI.slotData.inventory);
+            int newIndex = slot.transform.GetSiblingIndex();
 
-            slot.SetActive(true);
-            slot.SetSlotData(cursorItemUI.slotData);
-            //slot.SetSlot(cursorItemUI.GetImage(), cursorItemUI.GetText());
-            cursorItemUI.SetActive(false);
-            //Debug.Log(slot.transform.GetSiblingIndex());
+            Inventory oldInventory = cursorItemUI.slotData.inventory;
+            Inventory newInventory = slot.dataSlot.inventory;
 
+            InventorySlot temp = slot.dataSlot;
 
-            //inventoryController.MoveCurrentCursorTo(inventoryUI.displayingInventory, slot.transform.GetSiblingIndex());
+            Debug.Log($"Moving item from {oldInventory.name} index {oldIndex} to {newInventory.name} index {newIndex}");
+
+            oldInventory.inventorySlots[oldIndex] = new InventorySlot(oldInventory);
+            newInventory.inventorySlots[newIndex] = cursorItemUI.slotData;
+            cursorItemUI.slotData.ChangeInventory(newInventory);
+            cursorItemUI.SetSlotData(temp);
+            
             eventInventoryChanged.Raise();
         }
     }

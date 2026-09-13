@@ -12,9 +12,11 @@ public class CursorItemUI : MonoBehaviour
     public InventorySlot slotData;
     public void SetSlotData(InventorySlot slot)
     {
+        SetActive(!slot.IsEmpty());
         slotData = slot;
-        SetImage(slot?.itemData.iconSprite);
-        SetText(slot?.count.ToString());
+        SetImage(slot.IsEmpty()? null : slot.itemData.iconSprite);
+        SetText(slot.IsEmpty()? null : slot.count.ToString());
+
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -62,10 +64,10 @@ public class CursorItemUI : MonoBehaviour
 
     public void SetActive(bool active)
     {
-        if(!active)
-        {
-            SetSlotData(null);
-        }
+        //if(!active)
+        //{
+        //    SetSlotData(null);
+        //}
         gameObject.SetActive(active);
     }
 }

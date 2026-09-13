@@ -1880,7 +1880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
   inventorySlots: []
-  capacity: 5
+  capacity: 10
 --- !u!1 &681730343
 GameObject:
   m_ObjectHideFlags: 0
@@ -2649,6 +2649,11 @@ MonoBehaviour:
   canvas: {fileID: 1452857541}
   image: {fileID: 1883195739}
   text: {fileID: 1945342944}
+  slotData:
+    inventory: {fileID: 0}
+    itemData: {fileID: 0}
+    count: 0
+    index: 0
 --- !u!224 &876983300 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3762567516582713584, guid: 109eb32225721864fb38a3ae92978ab4, type: 3}
@@ -2786,6 +2791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   slotOnCursor:
+    inventory: {fileID: 0}
     itemData: {fileID: 0}
     count: 0
     index: 0
@@ -73819,13 +73825,16 @@ MonoBehaviour:
   chestInventory: {fileID: 675300610}
   interactButton: {fileID: 1464979547}
   itemsInChest:
-  - itemData: {fileID: 11400000, guid: 90b499b136ef75645917bf0d1891a6cc, type: 2}
+  - inventory: {fileID: 0}
+    itemData: {fileID: 11400000, guid: 90b499b136ef75645917bf0d1891a6cc, type: 2}
     count: 1
     index: 0
-  - itemData: {fileID: 11400000, guid: 45a3c50e16877314aa0b8cf72d8846c9, type: 2}
+  - inventory: {fileID: 0}
+    itemData: {fileID: 11400000, guid: 45a3c50e16877314aa0b8cf72d8846c9, type: 2}
     count: 1
     index: 1
-  - itemData: {fileID: 11400000, guid: af62755ab9a65a042acb56b5054bc2a1, type: 2}
+  - inventory: {fileID: 0}
+    itemData: {fileID: 11400000, guid: af62755ab9a65a042acb56b5054bc2a1, type: 2}
     count: 10
     index: 2
 --- !u!61 &1196883550
@@ -75318,6 +75327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FieldItem
   slot:
+    inventory: {fileID: 0}
     itemData: {fileID: 11400000, guid: 60f88a05fde85fe4ea2fb796e0240fbe, type: 2}
     count: 10
     index: 0

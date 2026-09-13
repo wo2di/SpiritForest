@@ -22,4 +22,9 @@ public class InventorySlot
         return itemData == null || count <= 0;
     }
 
+    public void ChangeInventory(Inventory newInventory)
+    {
+        inventory = newInventory;
+    }
+
 }
