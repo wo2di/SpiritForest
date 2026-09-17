@@ -53,7 +53,8 @@ public class InventoryUI_SlotContainer : MonoBehaviour
     {
         // pick up
         if (!cursorItemUI.IsActive())
-        {   
+        {
+            slot.SetActive(false);
             cursorItemUI.SetSlotData(slot.dataSlot);
         }
 
@@ -66,14 +67,20 @@ public class InventoryUI_SlotContainer : MonoBehaviour
             Inventory oldInventory = cursorItemUI.slotData.inventory;
             Inventory newInventory = slot.dataSlot.inventory;
 
-            InventorySlot temp = slot.dataSlot;
+            //InventorySlot temp = slot.dataSlot;
 
             Debug.Log($"Moving item from {oldInventory.name} index {oldIndex} to {newInventory.name} index {newIndex}");
 
-            oldInventory.inventorySlots[oldIndex] = new InventorySlot(oldInventory);
+            oldInventory.inventorySlots[oldIndex] = newInventory.inventorySlots[newIndex];
             newInventory.inventorySlots[newIndex] = cursorItemUI.slotData;
-            cursorItemUI.slotData.ChangeInventory(newInventory);
-            cursorItemUI.SetSlotData(temp);
+
+            oldInventory.inventorySlots[oldIndex].ChangeInventory(oldInventory);
+            newInventory.inventorySlots[newIndex].ChangeInventory(newInventory);
+
+            cursorItemUI.SetActive(false);
+
+            //cursorItemUI.slotData.ChangeInventory(newInventory);
+            //cursorItemUI.SetSlotData(temp);
             
             eventInventoryChanged.Raise();
         }

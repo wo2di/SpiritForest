@@ -9,7 +9,7 @@ public class UI_SlotContainer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        DisplaySlots();
     }
 
     // Update is called once per frame
@@ -20,11 +20,17 @@ public class UI_SlotContainer : MonoBehaviour
 
     public void DisplaySlots()
     {
-        foreach (Transform child in transform)
+        for(int i = 0; i < data.Capacity; i++)
         {
-            
-            child.GetComponent<UI_Slot>().SetImage(null);
+            Sprite sprite = data[i].iconSprite;
+            transform.GetChild(i).GetComponent<UI_Slot>().SetImage(sprite);
         }
+
+        //foreach (Transform child in transform)
+        //{
+        //    Sprite sprite = data[child.transform.GetSiblingIndex()].iconSprite;
+        //    child.GetComponent<UI_Slot>().SetImage(sprite);
+        //}
     }
 
 }
